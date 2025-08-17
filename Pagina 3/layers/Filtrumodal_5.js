@@ -1,0 +1,1 @@
+var json_Filtrumodal_5 = {"type":"FeatureCollection","name":"Filtrumodal_5","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":null},"geometry":{"type":"MultiLineString","coordinates":[[[21.912525696709412,47.078163697644712],[21.914119901402962,47.077762333360603]]]}}]}

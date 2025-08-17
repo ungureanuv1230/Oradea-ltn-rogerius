@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despre proiect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em 1em;
+      text-align: center;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.75);
+      z-index: -1;
+    }
+
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 80px;
+      z-index: 10;
+    }
+
+    .logo-oradea {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 180px;
+      z-index: 10;
+    }
+
+    h1 {
+      color: #004085;
+      margin-bottom: 1.5em;
+    }
+
+    h2 {
+      color: #004085;
+      margin-top: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    .maps-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin: 30px auto 50px;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .maps-list a {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      width: 100%;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .maps-list a:hover {
+      background-color: #004085;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    ul {
+      list-style-type: disc;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    footer {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1em;
+      padding: 2em 1em 0;
+      font-style: italic;
+      font-size: 0.95em;
+      color: #333;
+      margin-top: auto;
+    }
+
+    footer div {
+      flex: 1 1 45%;
+      word-wrap: break-word;
+    }
+
+    footer div:first-child {
+      text-align: left;
+    }
+
+    footer div:last-child {
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .maps-list a {
+        width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 0.9em;
+      }
+
+      footer div {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .logo, .logo-oradea {
+        width: 60px;
+      }
+    }
+
+    .fade-out {
+      animation: fadeOut 0.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Logo UTCB -->
+  <img src="logo.svg" alt="Logo facultate" class="logo">
+
+  <!-- Logo Oradea -->
+  <img src="Oradea.svg" alt="Logo Oradea" class="logo-oradea">
+
+  <main>
+    <h1>Conceptul „Low Traffic Neighbourhoods”</h1>
+
+    <p>
+      Această aplicație web permite vizualizarea rezultatelor obținute în urma analizei tuturor aspectelor importante din cartierul Rogerius, Municipiul Oradea și propune o rețea LTN (Low Traffic Neighbourhood), care are ca scop reducerea traficului de tranzit și creșterea siguranței pietonilor și bicicliștilor.
+    </p>
+
+    <h2>Vizualizare hărți interactive</h2>
+    <div class="maps-list">
+      <a href="Pagina 1/pagina1.html">📍 Structura urbană și infrastructura în Oradea</a>
+      <a href="Pagina 2/pagina2.html">🌳 Distribuția arborilor și parcurilor în Oradea</a>
+      <a href="Pagina 3/pagina3.html">🚦 Implementare LTN-uri în cartierul Rogerius</a>
+      <a href="Pagina 4/pagina4.html">🚌 Analiza accesibilității la transportul în comun</a>
+      <a href="Pagina 5/pagina5.html">🍃 Analiza condițiilor de vegetație stradală</a>
+      <a href="Pagina 6/pagina6.html">🌲 Analiza densității arborilor în proximitatea stațiilor de transport public</a>
+    </div>
+  </main>
+
+  <footer>
+    <div>Facultatea de Geodezie – Masterat Planificare Spațială și GIS pentru Dezvoltare Durabilă</div>
+    <div>Ing.Vasilica-Valentina TUDORICĂ</div>
+  </footer>
+
+  <!-- Script de tranziție între pagini -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll(".maps-list a");
+
+      links.forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const href = this.getAttribute("href");
+
+          document.body.classList.add("fade-out");
+
+          setTimeout(() => {
+            window.location.href = href;
+          }, 400);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
